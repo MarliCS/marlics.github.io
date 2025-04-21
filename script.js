@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Add click event to the signup button
     signupBtn.addEventListener('click', () => {
         // Replace this URL with your actual signup link
-        window.location.href = 'https://example.com/signup';
+        window.location.href = '';
     });
 
     // Add hover effect to the poster
