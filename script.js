@@ -36,11 +36,21 @@ document.addEventListener('DOMContentLoaded', function() {
         languageSwitch.querySelector('.fa').style.fontWeight = currentLang === 'fa' ? 'bold' : 'normal';
 
         // Update achievements visibility based on language
-        document.querySelectorAll('.more-achievements.en-achievements').forEach(el => {
+        document.querySelectorAll('.en-achievements').forEach(el => {
             el.style.display = currentLang === 'en' ? 'block' : 'none';
         });
-        document.querySelectorAll('.more-achievements.fa-achievements').forEach(el => {
+        document.querySelectorAll('.fa-achievements').forEach(el => {
             el.style.display = currentLang === 'fa' ? 'block' : 'none';
+        });
+
+        // Hide more achievements when switching languages
+        document.querySelectorAll('.more-achievements').forEach(el => {
+            el.style.display = 'none';
+        });
+
+        // Show more buttons when switching languages
+        document.querySelectorAll('.more-btn').forEach(btn => {
+            btn.style.display = 'inline-flex';
         });
     }
 
@@ -50,28 +60,35 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     languageSwitch.querySelector('.fa').style.fontWeight = 'bold';
 
+    // Set initial achievements visibility
+    document.querySelectorAll('.en-achievements').forEach(el => {
+        el.style.display = 'none';
+    });
+    document.querySelectorAll('.fa-achievements').forEach(el => {
+        el.style.display = 'block';
+    });
+
+    // Hide all more achievements initially
+    document.querySelectorAll('.more-achievements').forEach(el => {
+        el.style.display = 'none';
+    });
+
     languageSwitch.addEventListener('click', switchLanguage);
 
     // More button functionality
-    const moreBtn = document.querySelector('.more-btn');
-    const moreAchievementsEn = document.querySelector('.more-achievements.en-achievements');
-    const moreAchievementsFa = document.querySelector('.more-achievements.fa-achievements');
-
-    moreBtn.addEventListener('click', () => {
-        if (currentLang === 'en') {
-            moreAchievementsEn.style.display = 'block';
-        } else {
-            moreAchievementsFa.style.display = 'block';
-        }
-        moreBtn.style.display = 'none';
-    });
-
-    // Toggle achievements
-    document.querySelectorAll('.toggle-btn').forEach(btn => {
+    const moreBtns = document.querySelectorAll('.more-btn');
+    moreBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-            const achievementsList = btn.nextElementSibling;
-            btn.classList.toggle('active');
-            achievementsList.classList.toggle('active');
+            const parent = btn.closest('.achievements-list');
+            const moreAchievementsEn = parent.querySelector('.more-achievements.en-achievements');
+            const moreAchievementsFa = parent.querySelector('.more-achievements.fa-achievements');
+            
+            if (currentLang === 'en') {
+                moreAchievementsEn.style.display = 'block';
+            } else {
+                moreAchievementsFa.style.display = 'block';
+            }
+            btn.style.display = 'none';
         });
     });
 
@@ -81,34 +98,6 @@ document.addEventListener('DOMContentLoaded', function() {
             languageSwitch.classList.add('scrolled');
         } else {
             languageSwitch.classList.remove('scrolled');
-        }
-    });
-
-    // Video popup functionality
-    const videoPopup = document.getElementById('videoPopup');
-    const popupVideo = document.getElementById('popupVideo');
-    const closeBtn = document.querySelector('.close-btn');
-
-    document.querySelectorAll('.video-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const videoSrc = btn.getAttribute('data-video');
-            popupVideo.src = videoSrc;
-            videoPopup.classList.add('active');
-            popupVideo.play();
-        });
-    });
-
-    closeBtn.addEventListener('click', () => {
-        videoPopup.classList.remove('active');
-        popupVideo.pause();
-        popupVideo.src = '';
-    });
-
-    videoPopup.addEventListener('click', (e) => {
-        if (e.target === videoPopup) {
-            videoPopup.classList.remove('active');
-            popupVideo.pause();
-            popupVideo.src = '';
         }
     });
 
