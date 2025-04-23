@@ -626,8 +626,8 @@ body {
     }
 
     .gif-container {
-        flex: 0 0 180px;
-        height: 180px;
+        flex: 0 0 170px;
+        height: 170px;
     }
 
     [lang="fa"] .achievement-box {
