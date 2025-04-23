@@ -62,9 +62,17 @@ document.addEventListener('DOMContentLoaded', function() {
             element.textContent = element.getAttribute(`data-${currentLang}`);
         });
 
-        // Update button text
-        languageSwitch.querySelector('.en').style.fontWeight = currentLang === 'en' ? 'bold' : 'normal';
-        languageSwitch.querySelector('.fa').style.fontWeight = currentLang === 'fa' ? 'bold' : 'normal';
+        // Update button text and make active language bold
+        const enText = languageSwitch.querySelector('.en');
+        const faText = languageSwitch.querySelector('.fa');
+        
+        if (currentLang === 'en') {
+            enText.style.fontWeight = '700';
+            faText.style.fontWeight = '400';
+        } else {
+            enText.style.fontWeight = '400';
+            faText.style.fontWeight = '700';
+        }
 
         // Update achievements visibility based on language
         document.querySelectorAll('.en-achievements').forEach(el => {
@@ -89,7 +97,12 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('[data-en][data-fa]').forEach(element => {
         element.textContent = element.getAttribute('data-fa');
     });
-    languageSwitch.querySelector('.fa').style.fontWeight = 'bold';
+    
+    // Set initial button text weights
+    const enText = languageSwitch.querySelector('.en');
+    const faText = languageSwitch.querySelector('.fa');
+    enText.style.fontWeight = '400';
+    faText.style.fontWeight = '700';
 
     // Set initial achievements visibility
     document.querySelectorAll('.en-achievements').forEach(el => {
