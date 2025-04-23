@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Add click event to the signup button
     signupBtn.addEventListener('click', () => {
         // Replace this URL with your actual signup link
-        window.location.href = '';
+        window.location.href = 'https://docs.google.com/forms/d/e/1FAIpQLSfjtXOfJy22GKH0eUjK_RrTQqh3175edc8Wdh6x9JrBs7wUrQ/viewform?usp=header';
     });
 
     // Add hover effect to the poster
@@ -21,6 +21,37 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', function() {
     const languageSwitch = document.getElementById('languageSwitch');
     let currentLang = 'fa';
+
+    // Preload all videos
+    function preloadVideos() {
+        const videos = document.querySelectorAll('.achievement-gif');
+        videos.forEach(video => {
+            // Set preload attribute
+            video.preload = 'auto';
+            
+            // Force load the video
+            const videoSrc = video.getAttribute('src');
+            video.src = videoSrc;
+            
+            // Add load event listener
+            video.addEventListener('loadeddata', () => {
+                console.log(`Video ${videoSrc} preloaded successfully`);
+                // Add a class to indicate the video is loaded
+                video.classList.add('video-loaded');
+            });
+            
+            // Add error event listener
+            video.addEventListener('error', (e) => {
+                console.log(`Error preloading video ${videoSrc}:`, e);
+            });
+
+            // Force the video to load
+            video.load();
+        });
+    }
+
+    // Start preloading videos immediately
+    preloadVideos();
 
     function switchLanguage() {
         currentLang = currentLang === 'en' ? 'fa' : 'en';
@@ -101,24 +132,89 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Lazy load GIFs
+    // Function to play video once and pause at end
+    function playVideoOnce(video) {
+        // Reset video to beginning
+        video.currentTime = 0;
+        
+        // Remove any existing event listeners
+        video.removeEventListener('ended', handleVideoEnd);
+        
+        // Add new ended event listener
+        video.addEventListener('ended', handleVideoEnd);
+        
+        // Play the video
+        const playPromise = video.play();
+        
+        if (playPromise !== undefined) {
+            playPromise.then(() => {
+                // Video started playing successfully
+            }).catch(error => {
+                console.log("Video playback failed:", error);
+            });
+        }
+    }
+
+    // Handle video end
+    function handleVideoEnd(e) {
+        const video = e.target;
+        video.pause();
+        video.currentTime = video.duration; // Ensure we're at the last frame
+    }
+
+    // Intersection Observer for videos
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const video = entry.target;
-                const src = video.getAttribute('data-src');
-                if (src) {
-                    video.src = src;
-                    video.play();
-                    observer.unobserve(video);
+                if (!video.src) {
+                    video.src = video.getAttribute('src');
+                }
+                playVideoOnce(video);
+            } else {
+                // When video is out of view, reset it
+                const video = entry.target;
+                video.pause();
+                video.currentTime = 0;
+            }
+        });
+    }, {
+        threshold: 0.5,
+        rootMargin: '50px'
+    });
+
+    // Observe all achievement videos
+    document.querySelectorAll('.achievement-gif').forEach(video => {
+        // Set initial state
+        video.pause();
+        video.currentTime = 0;
+        
+        // Add error handling
+        video.addEventListener('error', (e) => {
+            console.log("Video error:", e);
+        });
+        
+        // Start observing
+        observer.observe(video);
+    });
+
+    // Play videos when their container becomes visible
+    const achievementObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const container = entry.target;
+                const video = container.querySelector('.achievement-gif');
+                if (video) {
+                    playVideoOnce(video);
                 }
             }
         });
     }, {
-        threshold: 0.1
+        threshold: 0.5
     });
 
-    document.querySelectorAll('.achievement-gif').forEach(video => {
-        observer.observe(video);
+    // Observe all achievement boxes
+    document.querySelectorAll('.achievement-box').forEach(box => {
+        achievementObserver.observe(box);
     });
 }); 
