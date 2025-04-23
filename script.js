@@ -108,18 +108,59 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // More button functionality
     const moreBtns = document.querySelectorAll('.more-btn');
+    
     moreBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             const parent = btn.closest('.achievements-list');
-            const moreAchievementsEn = parent.querySelector('.more-achievements.en-achievements');
-            const moreAchievementsFa = parent.querySelector('.more-achievements.fa-achievements');
+            const currentLang = document.documentElement.lang;
             
-            if (currentLang === 'en') {
-                moreAchievementsEn.style.display = 'block';
-            } else {
-                moreAchievementsFa.style.display = 'block';
-            }
-            btn.style.display = 'none';
+            // Get the appropriate list based on current language
+            const list = parent.querySelector(`.${currentLang}-achievements`);
+            const moreAchievements = list.querySelectorAll('.more-achievements');
+            
+            moreAchievements.forEach(achievement => {
+                if (!achievement.classList.contains('show')) {
+                    achievement.classList.add('show');
+                    const icon = btn.querySelector('i');
+                    if (icon) {
+                        icon.classList.remove('fa-plus');
+                        icon.classList.add('fa-minus');
+                    }
+                    btn.setAttribute('data-en', 'Less');
+                    btn.setAttribute('data-fa', 'کمتر');
+                    // Update the button text directly
+                    const btnText = btn.querySelector('.btn-text');
+                    if (btnText) {
+                        btnText.textContent = currentLang === 'en' ? 'Less' : 'کمتر';
+                    } else {
+                        // If no .btn-text element exists, create one
+                        const newBtnText = document.createElement('span');
+                        newBtnText.className = 'btn-text';
+                        newBtnText.textContent = currentLang === 'en' ? 'Less' : 'کمتر';
+                        btn.appendChild(newBtnText);
+                    }
+                } else {
+                    achievement.classList.remove('show');
+                    const icon = btn.querySelector('i');
+                    if (icon) {
+                        icon.classList.remove('fa-minus');
+                        icon.classList.add('fa-plus');
+                    }
+                    btn.setAttribute('data-en', 'More');
+                    btn.setAttribute('data-fa', 'بیشتر');
+                    // Update the button text directly
+                    const btnText = btn.querySelector('.btn-text');
+                    if (btnText) {
+                        btnText.textContent = currentLang === 'en' ? 'More' : 'بیشتر';
+                    } else {
+                        // If no .btn-text element exists, create one
+                        const newBtnText = document.createElement('span');
+                        newBtnText.className = 'btn-text';
+                        newBtnText.textContent = currentLang === 'en' ? 'More' : 'بیشتر';
+                        btn.appendChild(newBtnText);
+                    }
+                }
+            });
         });
     });
 

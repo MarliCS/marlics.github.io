@@ -509,8 +509,6 @@ body {
     line-height: 1.6;
     color: var(--text-color);
     font-weight: 500;
-    font-weight: 400;
-    letter-spacing: 0.1px;
 }
 
 .achievements-list li::before {
@@ -531,6 +529,7 @@ body {
     padding-left: 1.5rem;
     margin-bottom: 0.5rem;
     font-size: 0.9rem;
+    font-weight: 400;
 }
 
 .book-list li::before {
@@ -752,30 +751,47 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 24px;
-    height: 24px;
-    background: transparent;
-    color: var(--primary-color);
-    border: 1px solid var(--primary-color);
-    border-radius: 50%;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50px;
     cursor: pointer;
     transition: var(--transition);
-    margin-top: 0.5rem;
-    padding: 0;
+    margin-top: 1rem;
+    box-shadow: var(--shadow);
+    font-family: var(--font-secondary);
+    font-weight: 500;
 }
 
 .more-btn:hover {
-    background: var(--primary-color);
-    color: white;
-    transform: rotate(45deg);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+    background: var(--secondary-color);
 }
 
 .more-btn i {
-    font-size: 0.7rem;
+    font-size: 1rem;
     transition: var(--transition);
 }
 
-[lang="fa"] .more-btn {
-    margin-right: auto;
-    margin-left: 0;
+.more-btn .btn-text {
+    font-size: 0.9rem;
+}
+
+.more-achievements {
+    display: none;
+    transition: all 0.3s ease;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    margin-top: 0.5rem;
+}
+
+.more-achievements.show {
+    display: block !important;
+    opacity: 1;
+    max-height: 1000px;
+    margin-top: 0.5rem;
 }
