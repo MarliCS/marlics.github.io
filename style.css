@@ -274,16 +274,16 @@ body {
 @media (max-width: 768px) {
     .language-switch {
         top: 2.5rem;
-        padding: 8px 16px 8px 20px;
-        min-width: 120px;
+        padding: 10px 20px;
+        min-width: 140px; 
     }
     
     .language-switch:hover {
-        padding-right: 24px;
+        padding-right: 26px;
     }
     
     .language-switch:active {
-        padding-right: 20px;
+        padding-right: 22px;
     }
     
     .language-switch .en,
@@ -295,21 +295,21 @@ body {
 @media (max-width: 480px) {
     .language-switch {
         top: 2rem;
-        padding: 7px 14px 7px 16px;
-        min-width: 100px;
+        padding: 9px 18px;
+        min-width: 130px; 
     }
     
     .language-switch:hover {
-        padding-right: 20px;
+        padding-right: 22px;
     }
     
     .language-switch:active {
-        padding-right: 16px;
+        padding-right: 18px;
     }
     
     .language-switch .en,
     .language-switch .fa {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
     }
 }
 
@@ -862,15 +862,11 @@ body {
     }
 }
 
-/* Only move logo when space is too small */
-@media (max-width: 768px) and (min-width: 481px) {
-    .logo {
-        margin-left: max(20px, calc(130px + 20px));
-    }
-}
+
+
 
 @media (max-width: 480px) {
     .logo {
-        margin-left: calc(130px + 20px); /* Button width (120px) + minimum space (20px) + some padding */
+        margin-left: 150px; /* Button width (120px) + minimum space (20px) + some padding */
     }
 }
