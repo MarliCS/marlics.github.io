@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,12 +9,20 @@
 </head>
 <body>
     <div class="container">
+        <button id="languageSwitch" class="language-switch">
+            <span class="en">EN</span>
+            <span class="fa">فا</span>
+        </button>
+        
         <header class="header">
             <div class="logo-container">
                 <img src="images/logo.png" alt="Event Logo" class="logo">
             </div>
-            <h1 class="title">About Us</h1>
-            <p class="about-text">Welcome to our exciting event! We're thrilled to bring you an unforgettable experience filled with amazing moments and opportunities to connect. Join us for a day of fun, learning, and networking.</p>
+            <h1 class="title" data-en="IP and Music: Inspiration, Creation, Copywrite in the Age of AI" data-fa="مالکیت فکری و موسیقی:‌ الهام، خلق اثر و کپی‌رایت در عصر هوش مصنوعی">IP and Music: Inspiration, Creation, Copywrite in the Age of AI</h1>
+            <p class="about-text" data-en='This event gathers some of the best musicians and creators to discuss various aspects of the creative process and the legal considerations involved during a piece of music creation. Esmail Pirhadi, Setar Player, Singer and PhD student in Ethnomusicology at the University of Hildesheim will talk about the differences between inspiration and copying. Amin Haghrah, Legal Advisor, researcher, and writer will talk about the legal awareness and legal responsibility of musicians. Masoud Deljoo, Musician, Producer, and frontman of the band "Moonhead" will talk about creating music in the Age of AI. The event will include live music performances and will be held onsite, with online participation also available.'
+               data-fa='در این رویداد، ما جمعی از بهترین نوازندگان و تولیدکنندگان موسیقی را گرد آورده‌ایم تا درباره‌ی جنبه‌های گوناگون فرآیند آفرینش و ملاحظات حقوقی مرتبط با خلق یک قطعه‌ی موسیقی گفت‌وگو کنند. اسماعیل پیرهادی، نوازنده‌ی سه‌تار، خواننده و دانشجوی دکترای اتنوموزیکولوژی در دانشگاه هیلدسهایم، درباره‌ی تفاوت‌های بین الهام و تقلید صحبت خواهد کرد. امین حق‌ره، مشاور حقوقی، پژوهشگر و نویسنده، درباره‌ی آگاهی حقوقی و مسئولیت قانونی نوازندگان سخنرانی خواهد کرد. مسعود دلجو، نوازنده، تهیه‌کننده و خواننده اصلی گروه مون‌هد، درباره‌ی خلق موسیقی در عصر هوش مصنوعی صحبت خواهد کرد. این رویداد شامل اجراهای زنده موسیقی خواهد بود و به‌صورت حضوری برگزار می‌شود؛ امکان شرکت آنلاین نیز فراهم خواهد بود.'>
+               This event gathers some of the best musicians and creators to discuss various aspects of the creative process and the legal considerations involved during a piece of music creation. Esmail Pirhadi, Setar Player, Singer and PhD student in Ethnomusicology at the University of Hildesheim will talk about the differences between inspiration and copying. Amin Haghrah, Legal Advisor, researcher, and writer will talk about the legal awareness and legal responsibility of musicians. Masoud Deljoo, Musician, Producer, and frontman of the band "Moonhead" will talk about creating music in the Age of AI. The event will include live music performances and will be held onsite, with online participation also available.
+            </p>
         </header>
 
         <main class="main-content">
@@ -23,13 +31,152 @@
             </div>
 
             <div class="cta-section">
-                <p class="cta-text">برای شرکت در این رویداد فرم زیر را تکمیل کنید</p>
-                <button class="signup-btn" id="signupBtn">
+                <p class="cta-text" data-en="To participate in this event, please fill out the form below" data-fa="برای شرکت در این رویداد فرم زیر را تکمیل کنید">
+                    برای شرکت در این رویداد فرم زیر را تکمیل کنید
+                </p>
+                <button class="signup-btn" id="signupBtn" data-en="Sign Up" data-fa="ثبت نام کنید">
                     ثبت نام کنید
                     <i class="fas fa-arrow-right"></i>
                 </button>
             </div>
         </main>
+
+        <div class="achievements-section">
+            <div class="achievement-box">
+                <div class="left-section">
+                    <div class="gif-container">
+                        <video class="achievement-gif" data-src="videos/1.mp4" muted loop playsinline></video>
+                    </div>
+                    <button class="video-btn" data-video="videos/1.mp4" data-en="Full Description" data-fa="معرفی کامل">
+                        <span class="btn-text">Full Description</span>
+                        <i class="fas fa-play"></i>
+                    </button>
+                </div>
+                <div class="achievement-content">
+                    <h3 class="achievement-title" data-en="Esmail Pirhadi" data-fa="اسماعیل پیرهادی">Esmail Pirhadi</h3>
+                    <h4 class="achievement-subtitle" data-en="Setar Player, Singer and PhD student in Ethnomusicology at the University of Hildesheim." data-fa="دانشجوی دکتری اتنوموزیکولوژی در دانشگاه 'هیلدسهایم'">Setar Player, Singer and PhD student in Ethnomusicology at the University of Hildesheim.</h4>
+                    <div class="achievements-list">
+                        <ul class="en-achievements">
+                            <li>2023 Scholarship recipient from the Heinrich Böll Foundation, Germany</li>
+                            <li>One of the creative leaders of the Middle East in Stanford University's 2017 program (Music Therapy Project)</li>
+                            <li>Former head of the music department at Unit 17</li>
+                            <li>Lecturer at Islamic Azad University of Tehran and Lahijan, Units 7, 17, 46, and various music schools in Rasht and Tehran</li>
+                        </ul>
+                        <ul class="fa-achievements">
+                            <li>بورس سال ۲۰۲۳ بنیاد 'هایریش بُل' آلمان</li>
+                            <li>یکی از رهبران خلاق خاورمیانه در برنامه‌ی 'دانشگاه استنفورد' سال ۲۰۱۷ (طرح موسیقی درمانی)</li>
+                            <li>مدیر گروه سابق دانشکده‌ی موسیقی واحد ۱۷</li>
+                            <li>مدرس دانشگاه آزاد تهران و لاهیجان و واحد‌های ۷، ۱۷، ۴۶ و سایر آموزشگاه‌های رشت و تهران</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="achievement-box">
+                <div class="left-section">
+                    <div class="gif-container">
+                        <video class="achievement-gif" data-src="videos/2.mp4" muted loop playsinline></video>
+                    </div>
+                    <button class="video-btn" data-video="videos/2.mp4" data-en="Full Description" data-fa="معرفی کامل">
+                        <span class="btn-text">Full Description</span>
+                        <i class="fas fa-play"></i>
+                    </button>
+                </div>
+                <div class="achievement-content">
+                    <h3 class="achievement-title" data-en="Amin Haghrah" data-fa="امین حق‌راه">Amin Haghrah</h3>
+                    <h4 class="achievement-subtitle" data-en="Cultural and Social Researcher" data-fa="پژوشگر حوزه‌ی فرهنگ و اجتماع">Cultural and Social Researcher</h4>
+                    <div class="achievements-list">
+                        <ul class="en-achievements">
+                            <li>Social Counselor and Social Worker since 2000</li>
+                            <li>Journalist in social, cultural, and artistic fields since 2001</li>
+                            <li>Financial Manager in governmental and non-governmental organizations from 2001 to 2021</li>
+                            <li>Organizer and manager of festivals and specialized meetings in various art fields: visual arts, music, and cinema</li>
+                        </ul>
+                        <ul class="more-achievements en-achievements" style="display: none;">
+                            <li>Books (Author, Researcher, Writer, Interviewer):
+                                <ul class="book-list">
+                                    <li>The Fighting Rooster; A Study of Jalil Ziapour</li>
+                                    <li>The Rebellious Singer; A Study of Ahmad Ashourpour</li>
+                                    <li>Prison Culture; Practical Terms and Expressions in Iranian Prisons</li>
+                                    <li>Patience and Thought; Interview with Sharif Lotfi</li>
+                                    <li>Vernish; The Life of Hassan Khoshdel</li>
+                                    <li>Nemat Eslami's Poetry Books; Compilation</li>
+                                    <li>Mr. Henry; A Study of Manouchehr Vaisanlou</li>
+                                </ul>
+                            </li>
+                            <li>Activities in Music:
+                                <ul class="book-list">
+                                    <li>Research and writing of series of articles, reports, and interviews in the field of contemporary Gilan music (from 2006 to present)</li>
+                                    <li>Juma Project (Narrator of Unread Songs)</li>
+                                    <li>Two music albums (Shavan and Okhan)</li>
+                                    <li>And stage performances of the project since 2023</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="fa-achievements">
+                            <li>مشاور و مددکار اجتماعی از ۱۳۷۹</li>
+                            <li>روزنامه‌نگار حوزه‌ی اجتماع، فرهنگ و هنر از سال ۱۳۸۰</li>
+                            <li>مدیر مالی در دستگاه‌های دولتی و غیر دولتی از سال ۱۳۸۰ تا ۱۴۰۰</li>
+                            <li>برگزاری و مدیریت فستیوال‌ها و نشست‌های تخصصی در حوزه‌های مختلف هنر: تجسمی، موسیقی و سینما</li>
+                        </ul>
+                        <ul class="more-achievements fa-achievements" style="display: none;">
+                            <li>کتاب‌ها (تألیف، پژوهش، نگارش، گفتگو)
+                                <ul class="book-list">
+                                    <li>خروس جنگی؛ شناخت‌نامه‌ی جلیل ضیاپور</li>
+                                    <li>شورشی آوازه‌خوان؛ شناخت‌نامه‌ی احمد عاشورپور</li>
+                                    <li>فرهنگ محبس؛ واژه‌ها و اصطلاحات کاربردی در زندان‌های ایران</li>
+                                    <li>بردباری و اندیشه؛ گفتگو با شریف لطفی</li>
+                                    <li>ورنیشین؛ زندگی حسن خوشدل</li>
+                                    <li>دفترهای شعر نعمت اسلامی؛ گردآوری</li>
+                                    <li>آقای هنری؛ شناخت‌نامه‌ی منوچهر ویسانلو</li>
+                                </ul>
+                            </li>
+                            <li>فعالیت‌ها در حوزه‌ی موسیقی:
+                                <ul class="book-list">
+                                    <li>پژوهش و نگارش سلسله مقالات، گزارش‌ها، گفتگوهایی در حوزه‌ی موسیقی معاصر گیلان (از ۱۳۸۵ تا امروز)</li>
+                                    <li>پروژه‌ی جوما (راوی ترانه‌های ناخوانده)</li>
+                                    <li>دو آلبوم موسیقی (شوان و اوخان)</li>
+                                    <li>و اجراهای صحنه‌ی پروژه از ۱۴۰۲</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <button class="more-btn" data-en="More" data-fa="بیشتر">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="achievement-box">
+                <div class="left-section">
+                    <div class="gif-container">
+                        <video class="achievement-gif" data-src="videos/3.mp4" muted loop playsinline></video>
+                    </div>
+                    <button class="video-btn" data-video="videos/3.mp4" data-en="Full Description" data-fa="معرفی کامل">
+                        <span class="btn-text">Full Description</span>
+                        <i class="fas fa-play"></i>
+                    </button>
+                </div>
+                <div class="achievement-content">
+                    <h3 class="achievement-title" data-en="Masoud Deljoo" data-fa="مسعود دلجو">Masoud Deljoo</h3>
+                    <h4 class="achievement-subtitle" data-en="Composer, Producer, Electric Guitarist" data-fa="آهنگساز، تهیه‌کننده، نوازنده‌ی گیتار الکتریک">Composer, Producer, Electric Guitarist</h4>
+                    <div class="achievements-list">
+                        <ul class="en-achievements">
+                            <li>Lead vocalist and core member of the band 'Moonhead'</li>
+                            <li>Nominated for Best Iranian Vocal Album for composing 'Event Horizon' by Moonhead (2015)</li>
+                            <li>Nominated for Best Music and Sound Design at 'Indie Motion Club' Festival for the short film 'Play Back'</li>
+                            <li>Created podcast series 'Musical' and 'Sound Art' for Finnish National Radio</li>
+                        </ul>
+                        <ul class="fa-achievements">
+                            <li>خواننده و عضو اصلی گروه 'مونهد'</li>
+                            <li>نامزد بهترین آلبوم با کلام ایران برای آهنگسازی 'افق رویداد' از گروه مونهد (۱۳۹۴)</li>
+                            <li>نامزد بهترین موسیقی و طراحی صدای فستیوال 'Indie Motion Club' برای فیلم کوتاه 'Play Back'</li>
+                            <li>ساخت مجموعه‌ پادکست 'موزیکال' و 'ساندآرت' برای رادیوی ملی کشور فنلاند</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <footer class="footer">
             <div class="social-links">
@@ -43,6 +190,17 @@
                 </a>
             </div>
         </footer>
+    </div>
+    <div class="video-popup" id="videoPopup">
+        <div class="video-popup-content">
+            <button class="close-btn">
+                <i class="fas fa-times"></i>
+            </button>
+            <video id="popupVideo" controls>
+                <source src="" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
