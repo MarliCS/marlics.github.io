@@ -49,6 +49,14 @@ body {
     opacity: 0.9; /* Slightly faded for distinction */
     margin-top: 4px; /* Creates space between title and subtitle */
 }
+.subsubtitle {
+    font-size: 1.2rem; /* Smaller than subtitle */
+    font-weight: lighter; /* Gives a subtle emphasis */
+    opacity: 0.8; /* Slightly more faded than subtitle */
+    margin-top: 2px; /* Creates space between subtitle and subsubtitle */
+    font-style: italic; /* Adds a stylistic touch */
+}
+
 
 .container {
     max-width: 1200px;
